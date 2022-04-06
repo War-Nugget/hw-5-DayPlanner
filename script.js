@@ -64,6 +64,8 @@ function generateHourBlock(iterations)
 
     var currentTime = GetCurrentHour("LT");
 
+
+
     for(var i = 0; i < iterations; i++)
     {
         var text_time = text_Hour + text_Suffix;
@@ -72,6 +74,8 @@ function generateHourBlock(iterations)
     
         $iTimeText = $("<h5>").addClass("text-center").text(text_time);
         $iTimeDiv = $("<div>").addClass("col-2 py-3 bg-warning align-middle").append($iTimeText);
+        
+//Displays the grid with the lock icon to save and unsave the text===============================================================
 
         $iTextDiv = $("<textarea>").addClass("col-8 py-3 overflow-auto").text("").attr("id", text_time);
         setBGColor($iTextDiv, currentTime, text_time);
@@ -90,7 +94,7 @@ function generateHourBlock(iterations)
     }
 
 }
-
+// Adds text hours for each hour=====================================================================
 function incrementTextHour()
 {
     if(text_Hour === 12)
@@ -107,14 +111,14 @@ function incrementTextHour()
     }
 }
 
-
+//Displays date=====================================================================
 function DisplayDate(pFormat)
 {
     var date = moment().format(pFormat);
 
     $("#current-date").text(date);
 }
-
+//Gets local time==========================================================
 function GetCurrentHour(pFormat)
 {
     var time = moment().format(pFormat).toLowerCase();
