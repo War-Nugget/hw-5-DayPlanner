@@ -1,4 +1,3 @@
-
 var text_Hour = 9;
 var text_Suffix = ":00am";
 
@@ -16,44 +15,38 @@ function setBGColor($div, currentTime, textTime)
     if(iTime_CUR[iTime_CUR.length - 2] !== iTime_TXT[iTime_TXT.length - 2])
     {
         if(iTime_CUR[iTime_CUR.length - 2] > iTime_TXT[iTime_TXT.length - 2])
-        {
-            console.log("p > a");
-            $div.addClass("bg-secondary"); //Past events in grey
+        {          
+            $div.addClass("bg-secondary"); //Past events in grey================================================
         }
         else
         {
-            console.log("p < a");
-            $div.addClass("bg-primary"); //Current in blue 
+            $div.addClass("bg-primary"); //Current in blue ======================================================
         }
     }
     else
     {
-        console.log("same time of day");
 
         var t_CUR = parseHour(iTime_CUR);
         var t_TXT = parseHour(iTime_TXT);
 
         if(parseInt(t_CUR) > parseInt(t_TXT))
         {
-            console.log("current greater");
             $div.addClass("bg-secondary");
         }
         else if(parseInt(t_CUR) < parseInt(t_TXT))
         {
             if(parseInt(t_TXT) === 12)
             {
-                console.log("current greater");
                 $div.addClass("bg-secondary");
             }
             else
             {
-                console.log("current less");
                 $div.addClass("bg-primary");
             }
         }
         else
         {
-            $div.addClass("bg-warning"); //Upcoming events in yellow
+            $div.addClass("bg-warning"); //Upcoming events in yellow===========================================
         }
     }
 }
@@ -146,7 +139,7 @@ function GetCurrentHour(pFormat)
     console.log(hour + suffix);
     return hour + suffix;
 }
-
+//Parses time =================================================
 function parseHour(pTime)
 {
     var i = 0;
@@ -160,7 +153,7 @@ function parseHour(pTime)
 
     return iHour;
 }
-
+//Sets items into local storage for each stored block=============================================================
 function AlterStoredBlocks(pText, pID)
 {
     nBlock = {
@@ -215,7 +208,7 @@ generateHourBlock(9);
 DisplayDate("LLLL");
 GetStoredBlocks();
 
-
+//Event listener for lock and unlock icon==================================================
 $(".lock").click(function() {
     console.log("lock clicked");
 
