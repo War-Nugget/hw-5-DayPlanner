@@ -5,6 +5,9 @@ var text_Suffix = ":00am";
 var storedBlocks = [];
 var storedBlocks_NAME = "Stored Blocks";
 
+
+//Highlights upcoming events in yellow, current in blue, and past events in grey==============================================
+
 function setBGColor($div, currentTime, textTime)
 {
     var iTime_CUR = currentTime.split("");
@@ -15,12 +18,12 @@ function setBGColor($div, currentTime, textTime)
         if(iTime_CUR[iTime_CUR.length - 2] > iTime_TXT[iTime_TXT.length - 2])
         {
             console.log("p > a");
-            $div.addClass("bg-secondary");
+            $div.addClass("bg-secondary"); //Past events in grey
         }
         else
         {
             console.log("p < a");
-            $div.addClass("bg-primary");
+            $div.addClass("bg-primary"); //Current in blue 
         }
     }
     else
@@ -50,7 +53,7 @@ function setBGColor($div, currentTime, textTime)
         }
         else
         {
-            $div.addClass("bg-warning");
+            $div.addClass("bg-warning"); //Upcoming events in yellow
         }
     }
 }
@@ -64,8 +67,6 @@ function generateHourBlock(iterations)
 
     var currentTime = GetCurrentHour("LT");
 
-
-
     for(var i = 0; i < iterations; i++)
     {
         var text_time = text_Hour + text_Suffix;
@@ -74,7 +75,7 @@ function generateHourBlock(iterations)
     
         $iTimeText = $("<h5>").addClass("text-center").text(text_time);
         $iTimeDiv = $("<div>").addClass("col-2 py-3 bg-warning align-middle").append($iTimeText);
-        
+
 //Displays the grid with the lock icon to save and unsave the text===============================================================
 
         $iTextDiv = $("<textarea>").addClass("col-8 py-3 overflow-auto").text("").attr("id", text_time);
@@ -184,7 +185,7 @@ function AlterStoredBlocks(pText, pID)
     localStorage.setItem(storedBlocks_NAME, JSON.stringify(storedBlocks));
 }
 
-
+// Allows for getting saved items===========================================================
 function GetStoredBlocks()
 {
 
@@ -221,7 +222,7 @@ $(".lock").click(function() {
 
     $(this).toggleClass('unlocked');
 
-    $iTextArea = $($(this).parent().parent().children()[1]);
+
 
     iInput = $iTextArea.val();
     iID = $iTextArea.attr("id");
