@@ -27,3 +27,4 @@ Below are the features I have created with this application.
 - A resizing option at bottom right of box to resize box.
 
 All in all, this has been a challenging assignment due to how good I wanted to make it look and I cannot wait to go to bed. 
+![Screenshot 2022-04-07 at 17-33-41 Work Day Scheduler](https://user-images.githubusercontent.com/97697696/162323713-62d71d9f-1254-4416-a3b1-575c2408ca7c.png)
